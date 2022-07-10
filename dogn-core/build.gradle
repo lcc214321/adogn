@@ -1,0 +1,18 @@
+archivesBaseName = "dogn-core"
+
+configurations.all {
+
+}
+
+dependencies {
+    compile project(":dogn-tools")
+    compile project(":dogn-common")
+    compile 'org.apache.commons:commons-collections4:4.4'
+
+    // https://mvnrepository.com/artifact/io.github.openfeign/feign-core
+    compile 'io.github.openfeign:feign-core:10.12'
+
+    compile 'io.prometheus:simpleclient:0.16.0'
+
+    compile('org.springframework:spring-tx')
+}

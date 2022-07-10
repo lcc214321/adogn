@@ -1,0 +1,22 @@
+plugins {
+    id 'java'
+}
+
+
+
+dependencies {
+
+    compile project(":dogn-core")
+
+    compile('com.ctrip.framework.apollo:apollo-client:1.8.0')
+    compile('com.ctrip.framework.apollo:apollo-core:1.8.0')
+
+    compile("org.springframework.boot:spring-boot-configuration-processor")
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+    compile("org.springframework.boot:spring-boot-starter-web") {
+        exclude group: "com.fasterxml.jackson.core", module: "jackson-databind"
+    }
+
+    compile("org.springframework.cloud:spring-cloud-context")
+}
+

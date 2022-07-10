@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.dongyulong.dogn.mq.auto.RocketmqConfiguration
+org.springframework.boot.SpringApplicationRunListener=\
+  com.dongyulong.dogn.mq.auto.RocketmqRunListener

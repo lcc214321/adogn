@@ -1,0 +1,9 @@
+
+archivesBaseName = "dogn-common"
+
+dependencies {
+    compile project(":dogn-tools")
+}
+
+configurations.all {
+}

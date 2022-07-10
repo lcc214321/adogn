@@ -1,0 +1,61 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.dongyulong.dogn.datasource.autoconfigure.DynamicDataSourceProperties",
+      "name": "spring.datasource.multi.enable",
+      "type": "com.dongyulong.dogn.datasource.autoconfigure.DynamicDataSourceProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.dongyulong.dogn.datasource.autoconfigure.DynamicDataSourceProperties",
+      "defaultValue": [],
+      "name": "spring.datasource.multi.enable.dataSourceName",
+      "description": "需要开启的数据库链接",
+      "type": "java.util.List<com.dongyulong.dogn.datasource.enums.DatabaseEnum>"
+    },
+    {
+      "sourceType": "com.dongyulong.dogn.datasource.autoconfigure.DynamicDataSourceProperties",
+      "defaultValue": true,
+      "name": "spring.datasource.multi.enable.all",
+      "description": "是否开启全部数据库链接",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.dongyulong.dogn.datasource.autoconfigure.DynamicDataSourceProperties",
+      "defaultValue": "mybatis",
+      "name": "spring.datasource.multi.enable.autoOrm",
+      "description": "使用的ORM架构",
+      "type": "com.dongyulong.dogn.datasource.enums.ORMENUM"
+    },
+    {
+      "sourceType": "com.dongyulong.dogn.datasource.autoconfigure.DynamicDataSourceProperties",
+      "defaultValue": false,
+      "name": "spring.datasource.multi.enable.dynamicTableName",
+      "description": "是否开启mybatis动态表名插件",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.dongyulong.dogn.datasource.autoconfigure.DynamicDataSourceProperties",
+      "defaultValue": false,
+      "name": "spring.datasource.multi.enable.autofillDate",
+      "description": "是否开启mybatis自动填充时间插件",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.dongyulong.dogn.datasource.autoconfigure.DynamicDataSourceProperties",
+      "defaultValue": false,
+      "name": "spring.datasource.multi.enable.createTimeFieldName",
+      "description": "mybatis动态表名插件创建时间属性名",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.dongyulong.dogn.datasource.autoconfigure.DynamicDataSourceProperties",
+      "defaultValue": false,
+      "name": "spring.datasource.multi.enable.updateTimeFieldName",
+      "description": "mybatis动态表名插件修改时间属性名",
+      "type": "java.lang.String"
+    }
+  ]
+}

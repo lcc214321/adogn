@@ -1,0 +1,26 @@
+archivesBaseName = "dogn-mq"
+
+configurations.all {
+
+}
+
+ext {
+    rocketmqVersion = "4.9.3"
+}
+
+dependencies {
+    compile project(":dogn-core")
+    compile project(":dogn-apollo")
+    compile project(":dogn-autoconfigure")
+
+    compile("org.apache.rocketmq:rocketmq-common:${rocketmqVersion}")
+    compile("org.apache.rocketmq:rocketmq-client:${rocketmqVersion}")
+    compile("org.apache.rocketmq:rocketmq-logging:${rocketmqVersion}")
+    compile("org.apache.rocketmq:rocketmq-remoting:${rocketmqVersion}")
+
+    compile 'com.alibaba:transmittable-thread-local:2.11.5'
+
+    compile("com.dongyulong:dogn-juno-spring-boot-starter:1.0.0")
+    compile("com.dongyulong:dogn-redis-spring-boot-starter:1.0.0")
+
+}

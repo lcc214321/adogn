@@ -1,0 +1,11 @@
+archivesBaseName = "dogn-mq-client"
+
+configurations.all {
+
+}
+
+dependencies {
+    compile project(":dogn-tools")
+    compile project(":dogn-common")
+
+}

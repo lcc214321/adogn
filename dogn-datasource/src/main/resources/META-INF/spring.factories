@@ -1,0 +1,14 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.dongyulong.dogn.datasource.autoconfigure.DynamicDataSourceProperties,\
+  com.dongyulong.dogn.datasource.aop.DynamicDataSourceAspect,\
+  com.dongyulong.dogn.datasource.autoconfigure.DynamicDataSourceAutoConfiguration,\
+  com.dongyulong.dogn.datasource.provider.DefaultDataSourceProvider,\
+  com.dongyulong.dogn.datasource.provider.ShardingDataSourceProvider,\
+  com.dongyulong.dogn.datasource.DynamicRoutingDataSource,\
+  com.dongyulong.dogn.datasource.autoconfigure.sqlsessionfactory.MybatisSqlSessionFactoryProvider,\
+  com.dongyulong.dogn.datasource.autoconfigure.sqlsessionfactory.MybatisPlusSqlSessionFactoryProvider,\
+  com.dongyulong.dogn.datasource.autoconfigure.MybatisPlusInterceptorAutoConfig,\
+  com.dongyulong.dogn.datasource.strategy.DefaultRoutingStrategy,\
+  com.dongyulong.dogn.datasource.strategy.ShardingRoutingStrategy
+org.springframework.boot.context.properties.EnableConfigurationProperties=\
+  com.dongyulong.dogn.datasource.autoconfigure.DynamicDataSourceProperties

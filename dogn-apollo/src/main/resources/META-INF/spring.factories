@@ -1,0 +1,8 @@
+org.springframework.context.ApplicationContextInitializer=\
+com.dongyulong.dogn.apollo.autoconfigure.ApolloConfigureInitializer
+
+org.springframework.boot.env.EnvironmentPostProcessor=\
+com.dongyulong.dogn.apollo.autoconfigure.ApolloConfigureInitializer
+
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.dongyulong.dogn.apollo.autoconfigure.ApolloConfiguration

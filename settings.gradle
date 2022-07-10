@@ -1,0 +1,11 @@
+rootProject.name = 'dogn'
+include 'dogn-common'
+include 'dogn-core'
+include 'dogn-autoconfigure'
+include 'dogn-tools'
+include 'dogn-datasource'
+include 'dogn-mq'
+include 'dogn-mq-client'
+include 'dogn-table'
+include 'dogn-apollo'
+

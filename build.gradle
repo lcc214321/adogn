@@ -1,0 +1,110 @@
+//编辑
+buildscript {
+    ext {
+        springBootVersion = '1.5.7.RELEASE'
+    }
+    repositories {
+        mavenLocal()
+        maven { url "http://82.157.210.101/repository/maven-public/" }
+        mavenCentral()
+    }
+    dependencies {
+        classpath "io.spring.gradle:dependency-management-plugin:1.0.10.RELEASE"
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+//所有项目配置
+allprojects {
+    ext {
+        set('springBootVersion', "1.5.7.RELEASE")
+        set('springCloudVersion', "Edgware.SR2")
+    }
+
+    group 'com.dongyulong'
+    //测试版本信息
+    version '1.0.1-SNAPSHOT'
+
+    apply plugin: 'java'
+    apply plugin: 'maven'
+    apply plugin: 'io.spring.dependency-management'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    repositories {
+        mavenLocal()
+        maven { url "http://82.157.210.101/repository/maven-public/" }
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public/"}
+        maven { url "https://plugins.gradle.org/m2/" }
+        mavenCentral()
+    }
+
+    dependencyManagement {
+        imports {
+            // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies
+            mavenBom "org.springframework.boot:spring-boot-dependencies:${springBootVersion}"
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+        }
+    }
+}
+
+//各个模块的统一
+subprojects {
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
+    }
+    task packageSources(type: Jar) {
+        classifier = 'sources'
+        from sourceSets.main.allSource
+    }
+    install {
+        repositories.mavenInstaller {}
+    }
+    //上传包
+    uploadArchives {
+        repositories {
+            mavenDeployer {
+                repository(url: "http://82.157.210.101/repository/maven-releases/") {
+                    authentication(userName: "${USER}", password: "${PASSWORD}")
+                }
+                snapshotRepository(url: "http://82.157.210.101/repository/maven-snapshots/") {
+                    authentication(userName: "${USER}", password: "${PASSWORD}")
+                }
+            }
+        }
+    }
+    uploadArchives.dependsOn(install)
+    artifacts.archives packageSources
+
+    dependencies {
+        compile('com.squareup.okhttp3:okhttp:3.9.0') {
+            force = true
+        }
+        compile('com.squareup.okhttp3:okhttp:3.9.0') {
+            force = true
+        }
+        compile ('com.google.guava:guava:23.0'){
+            force = true
+        }
+
+        // https://mvnrepository.com/artifact/cn.hutool/hutool-core
+        compile 'cn.hutool:hutool-core:5.7.20'
+
+        compile('org.slf4j:slf4j-api:1.7.25')
+        compile('ch.qos.logback:logback-core:1.1.11')
+        compile('ch.qos.logback:logback-classic:1.1.11')
+
+        //lombok
+        compileOnly('org.projectlombok:lombok:1.18.22')
+        annotationProcessor("org.projectlombok:lombok:1.18.22")
+        testAnnotationProcessor("org.projectlombok:lombok:1.18.22")
+        testCompileOnly("org.projectlombok:lombok:1.18.22")
+        compile('org.apache.commons:commons-lang3:3.12.0')
+    }
+    //刷新
+    configurations.all {
+        resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+        exclude module: 'slf4j-log4j12'
+    }
+}
